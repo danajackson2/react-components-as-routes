@@ -1,15 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Home from './Home'
+import About from './About'
+import Login from './Login'
+import Signup from './Signup'
+import Messages from './Messages'
+import Navbar from './Navbar'
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 
-const Home = () => {
-  return (
+const link = {
+  width: '100px',
+  padding: '12px',
+  margin: '0 6px 6px',
+  background: 'blue',
+  textDecoration: 'none',
+  color: 'white',
+}
+
+
+ReactDOM.render((
+  <Router>
     <div>
-      <h1>Home!</h1>
+      <Navbar />
+      <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path='/signup' component={Signup}/>
+      <Route exact path='/messages' component={Messages}/>
     </div>
-  );
-};
-
-ReactDOM.render(
-  <Home />,
+  </Router>),
   document.getElementById('root')
-);
+)
